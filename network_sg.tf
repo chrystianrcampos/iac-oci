@@ -1,7 +1,7 @@
-resource "oci_core_security_list" "sg" {
+resource "oci_core_security_list" "default_sg" {
   compartment_id = var.compartment_id
   vcn_id         = oci_core_virtual_network.vcn.id
-  display_name   = "${var.company}-sg-${var.env}"
+  display_name   = "${var.company}-sg"
 
   ingress_security_rules {
     protocol    = "6"

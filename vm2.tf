@@ -1,7 +1,7 @@
-resource "oci_core_instance" "vm" {
+resource "oci_core_instance" "vm2" {
   availability_domain   = data.oci_identity_availability_domains.ads.availability_domains[0].name
   compartment_id        = var.compartment_id
-  display_name          = "${var.company}-vm"
+  display_name          = "${var.company}-vm2"
   shape                 = "VM.Standard.A1.Flex"
 
   shape_config {
@@ -18,8 +18,8 @@ resource "oci_core_instance" "vm" {
   create_vnic_details {
     subnet_id        = oci_core_subnet.public_subnet_a.id
     assign_public_ip = false
-    hostname_label   = "${var.company}-vm"
-    display_name     = "${var.company}-vm-vnic"
+    hostname_label   = "${var.company}-vm2"
+    display_name     = "${var.company}-vm2-vnic"
   }
 
   metadata = {
@@ -62,14 +62,14 @@ EOF
   preserve_boot_volume = false
 }
 
-data "oci_core_private_ips" "vm_private_ip" {
-  ip_address = oci_core_instance.vm.private_ip
+data "oci_core_private_ips" "vm2_private_ip" {
+  ip_address = oci_core_instance.vm2.private_ip
   subnet_id  = oci_core_subnet.public_subnet_a.id
 }
 
-resource "oci_core_public_ip" "vm_public_ip" {
+resource "oci_core_public_ip" "vm2_public_ip" {
   compartment_id = var.compartment_id
   lifetime       = "RESERVED"
-  display_name   = "${var.company}-vm-public-ip"
-  private_ip_id  = data.oci_core_private_ips.vm_private_ip.private_ips[0].id
+  display_name   = "${var.company}-vm2-public-ip"
+  private_ip_id  = data.oci_core_private_ips.vm2_private_ip.private_ips[0].id
 }

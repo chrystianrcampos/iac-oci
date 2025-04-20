@@ -23,12 +23,6 @@ variable "r2_key" {
   type        = string  
 }
 
-variable "env" {
-  default     = "dev"
-  description = "Environment name"
-  type        = string
-}
-
 variable "company" {
   default     = "generic"
   description = "Company name"

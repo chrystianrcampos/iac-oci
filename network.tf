@@ -32,6 +32,7 @@ resource "oci_core_subnet" "public_subnet_a" {
   display_name        = "public-subnet-a"
   dns_label           = "pubsuba"
   route_table_id      = oci_core_route_table.public.id
+  security_list_ids   = [oci_core_security_list.default_sg.id]
   prohibit_public_ip_on_vnic = false
 }
 
