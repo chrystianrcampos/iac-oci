@@ -1,0 +1,66 @@
+variable "env" {
+  default     = "dev"
+  description = "Environment name"
+  type        = string
+}
+
+variable "company" {
+  default     = "generic"
+  description = "Company name"
+  type        = string
+}
+
+variable "vcn_cidr" {
+  default     = "10.0.0.0/16"
+  description = "VCN CIDR block"
+  type        = string
+}
+
+variable "user_ocid" {
+  description = "User OCID"
+  type        = string  
+}
+
+variable "tenancy_ocid" {
+  description = "Tenancy OCID"
+  type        = string
+}
+
+variable "compartment_id" {
+  description = "Compartment ID"
+  type        = string
+}
+
+variable "private_key_path" {
+  description = "Private key path"
+  type        = string  
+}
+
+variable "private_key_password" {
+  description = "Private key password"
+  type        = string
+}
+
+variable "fingerprint" {
+  description = "Fingerprint"
+  type        = string  
+}
+
+variable "image_ocid" {
+  description = "Image OCID"
+  type        = string
+}
+
+variable "ssh_public_key" {
+  description = "SSH public key path"
+  type        = string
+}
+
+variable "ssh_private_key" {
+  description = "SSH private key path"
+  type        = string
+}
+
+data "oci_identity_availability_domains" "ads" {
+  compartment_id = var.compartment_id
+}
