@@ -32,7 +32,7 @@ resource "oci_core_subnet" "public_subnet_a" {
   display_name        = "public-subnet-a"
   dns_label           = "pubsuba"
   route_table_id      = oci_core_route_table.public.id
-  security_list_ids   = [oci_core_security_list.default_sg.id]
+  security_list_ids   = [oci_core_security_list.default_security_list.id]
   prohibit_public_ip_on_vnic = false
 }
 
@@ -43,5 +43,6 @@ resource "oci_core_subnet" "private_subnet_a" {
   vcn_id              = oci_core_virtual_network.vcn.id
   display_name        = "private-subnet-a"
   dns_label           = "privsuba"
+  security_list_ids   = [oci_core_security_list.default_security_list.id, oci_core_security_list.db_security_list.id]
   prohibit_public_ip_on_vnic = true
 }
