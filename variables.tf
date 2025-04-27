@@ -80,6 +80,11 @@ variable "ssh_private_key" {
   type        = string
 }
 
+variable "db_admin_password" {
+  description = "Admin password for MySQL database"
+  type        = string
+}
+
 data "oci_identity_availability_domains" "ads" {
   compartment_id = var.compartment_id
 }
