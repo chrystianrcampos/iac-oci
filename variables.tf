@@ -55,11 +55,6 @@ variable "private_key_path" {
   type        = string  
 }
 
-variable "private_key_password" {
-  description = "Private key password"
-  type        = string
-}
-
 variable "fingerprint" {
   description = "Fingerprint"
   type        = string  

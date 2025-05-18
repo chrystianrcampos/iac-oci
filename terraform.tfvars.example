@@ -1,7 +1,7 @@
 r2_endpoint = "https://ACCOUNT_ID.r2.cloudflarestorage.com"
 r2_access_key = "ACCESS_KEY_ID"
 r2_secret_key = "SECRET_ACCESS_KEY"
-r2_bucket = "iac-oci"
+r2_bucket = "tfstate"
 r2_key = "iac-oci/terraform.tfstate"
 company = "generic"
 user_ocid = "USER_OCID"
